@@ -137,3 +137,33 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+# --- Java / Spring Boot ---
+target/
+*.log
+*.iml
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+.idea/
+*.class
+*.war
+*.ear
+
+
+# --- .NET / Visual Studio / WPF ---
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.jfm
+*.pdb
+
+# --- OS / 편집기 공통 ---
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
