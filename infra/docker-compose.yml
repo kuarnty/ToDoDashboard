@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16
+    container_name: todo-db
+    restart: unless-stopped
+    env_file:
+      - ./.env.db
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-todo} -d ${POSTGRES_DB:-todoapp}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: todo-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
