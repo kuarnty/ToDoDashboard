@@ -5,6 +5,7 @@ import { User } from './users/user.entity';
 import { Todo } from './todos/todo.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
     imports: [
@@ -24,6 +25,7 @@ import { AuthModule } from './auth/auth.module';
         }),
         UsersModule,
         AuthModule,
+        TodosModule,
     ],
 })
 export class AppModule { }
